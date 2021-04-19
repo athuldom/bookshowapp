@@ -11,8 +11,7 @@ import { Link } from 'react-router-dom';
 
 const Details = (props) => {
     
-  const[movie, setMovie] = useState({});
-
+const[movie, setMovie] = useState({});
 const [starIcons, setStarIcons] = useState([{
     id: 1,
     stateId: "star1",
@@ -40,8 +39,7 @@ const [starIcons, setStarIcons] = useState([{
 }]);
 
 useEffect(() => {
-    let dataMovie = null;
-    
+    let dataMovie = null;    
     fetch(props.baseUrl + "movies/" + props.match.params.id , {
         method: "GET",
         headers: {
@@ -78,8 +76,7 @@ const startClickHandler = (id) => {
     setStarIcons( starIconList);
 }
 
-// let movie = movie;
-const opts = {
+const youtubeOptions = {
     height: '300',
     width: '700',
     playerVars: {
@@ -130,7 +127,7 @@ return(
             </Typography>
             <YouTube
                 videoId={movie.trailer_url.split("?v=")[1]}
-                opts={opts}
+                youtubeOptions={youtubeOptions}
                 onReady={props._onReady}
             />
         </div>
@@ -171,13 +168,6 @@ return(
     </div>
 </div>
 </div>)
-
-
-
-
-
-
-
 }
 
 export default Details;
